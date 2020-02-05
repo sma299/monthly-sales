@@ -17,7 +17,10 @@ import pandas
 
 
 #if CSV file in same directory as this Python script:
-csv_filepath = "gradebook.csv"
+csv_filepath = "data/gradebook.csv"
+
+#csv_filepath = os.path.join(os.path.dirname(_file_), "data", "monthly_sales.csv")
+
 
 #csv_filepath = "/path/to/jeter_stats.csv"
 grades = pandas.read_csv(csv_filepath)
@@ -25,4 +28,13 @@ print("GRADES:", type(grades))
 
 print(grades.head())
 
+grades_col = grades["final_grades"]
+print("GRADES COLUMN", type(grades_col))
 
+avg_grade = grades_col.mean()
+print("AVG GRADE:", avg_grade)
+
+or index, row in grades.iterrows():
+    print(index)
+    print(row["final_grade"])
+    prin("---")
